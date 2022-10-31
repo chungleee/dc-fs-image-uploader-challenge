@@ -9,7 +9,9 @@ const ImageUploader = () => {
 			<h4>File should be JPEG, PNG only</h4>
 			<div className={styles.dropzone}>
 				<Dropzone
-					accept={[".jpeg", ".jpg", ".png"]}
+					accept={{
+						"image/*": [".png", ".jpeg", ".jpg"],
+					}}
 					onDrop={(acceptedFiles) => console.log(acceptedFiles)}
 				>
 					{({ getRootProps, getInputProps }) => (
