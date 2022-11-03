@@ -1,4 +1,3 @@
-import { supabase } from "../../supabaseClient";
 import React from "react";
 import styles from "./ImageUploader.module.scss";
 import Dropzone from "react-dropzone";
@@ -6,6 +5,8 @@ import { useState } from "react";
 
 const ImageUploader = () => {
 	const [image, setImage] = useState(null);
+	const [file_to_upload, set_file_to_upload] = useState(null);
+
 	return (
 		<div className={styles.image_uploader}>
 			<h1>Upload your image</h1>
@@ -16,8 +17,11 @@ const ImageUploader = () => {
 						"image/*": [".png", ".jpeg", ".jpg"],
 					}}
 					onDrop={(acceptedFiles) => {
-						console.log(acceptedFiles);
-						setImage(URL.createObjectURL(acceptedFiles[0]));
+						// console.log(acceptedFiles);
+						const file = acceptedFiles[0];
+						console.log("file", file);
+						set_file_to_upload(file);
+						// setImage(URL.createObjectURL(acceptedFiles[0]));
 					}}
 				>
 					{({ getRootProps, getInputProps }) => (
@@ -47,6 +51,13 @@ const ImageUploader = () => {
 				</Dropzone>
 				{!image ? null : <img src={image} />}
 			</div>
+			<button
+				onClick={() => {
+					handleFileUpload(file_to_upload);
+				}}
+			>
+				upload
+			</button>
 		</div>
 	);
 };
