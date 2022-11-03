@@ -51,13 +51,7 @@ const ImageUploader = () => {
 				</Dropzone>
 				{!image ? null : <img src={image} />}
 			</div>
-			<button
-				onClick={() => {
-					handleFileUpload(file_to_upload);
-				}}
-			>
-				upload
-			</button>
+			<button onClick={() => {}}>upload</button>
 		</div>
 	);
 };
