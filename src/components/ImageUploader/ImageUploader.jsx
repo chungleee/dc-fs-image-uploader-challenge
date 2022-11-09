@@ -3,9 +3,23 @@ import styles from "./ImageUploader.module.scss";
 import Dropzone from "react-dropzone";
 import { useState } from "react";
 
-const ImageUploader = () => {
+const ImageUploader = ({ handle_is_uploading }) => {
 	const [image, setImage] = useState(null);
 	const [file_to_upload, set_file_to_upload] = useState(null);
+
+	const fakeUploadFunction = (ms) => {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				resolve("uploaded!!!");
+			}, ms);
+		});
+	};
+
+	const handleUpload = async function () {
+		handle_is_uploading(true);
+		await fakeUploadFunction(5000);
+		handle_is_uploading(false);
+	};
 
 	return (
 		<div className={styles.image_uploader}>
@@ -17,11 +31,8 @@ const ImageUploader = () => {
 						"image/*": [".png", ".jpeg", ".jpg"],
 					}}
 					onDrop={(acceptedFiles) => {
-						// console.log(acceptedFiles);
 						const file = acceptedFiles[0];
-						console.log("file", file);
 						set_file_to_upload(file);
-						// setImage(URL.createObjectURL(acceptedFiles[0]));
 					}}
 				>
 					{({ getRootProps, getInputProps }) => (
@@ -51,7 +62,15 @@ const ImageUploader = () => {
 				</Dropzone>
 				{!image ? null : <img src={image} />}
 			</div>
-			<button onClick={() => {}}>upload</button>
+			<div className={styles.button_container}>
+				<button
+					onClick={() => {
+						handleUpload(file_to_upload);
+					}}
+				>
+					fake upload
+				</button>
+			</div>
 		</div>
 	);
 };
