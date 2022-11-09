@@ -5,9 +5,11 @@ import Uploading from "./components/Uploading/Uploading";
 
 const App = () => {
 	const [is_uploading, set_is_uploading] = useState(false);
-	const handle_is_uploading = () => {
-		set_is_uploading(true);
+
+	const handle_is_uploading = (bool) => {
+		set_is_uploading(bool);
 	};
+
 	return (
 		<div className={style.app}>
 			{is_uploading ? (
