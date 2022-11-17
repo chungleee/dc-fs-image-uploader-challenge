@@ -20,8 +20,29 @@
 			width: 100%;
 			height: 5px;
 			border-radius: 8px;
-			// background-color: #f2f2f2;
-			background-color: blue;
+			background-color: #f2f2f2;
+			position: relative;
 		}
+
+		.progress {
+			height: 100%;
+			width: 25%;
+			border-radius: 8px;
+			background-color: blue;
+			position: absolute;
+			animation: 1s ease-in-out infinite loadingAnimation;
+		}
+	}
+}
+
+@keyframes loadingAnimation {
+	from {
+		transform: translateX(0);
+		left: 0;
+	}
+
+	to {
+		left: 100%;
+		transform: translateX(-100%);
 	}
 }
