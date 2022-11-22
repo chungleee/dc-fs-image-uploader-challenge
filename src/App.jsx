@@ -38,16 +38,6 @@ const App = () => {
 			/>
 		</div>
 	);
-
-	return (
-		<div className={style.app}>
-			{is_uploading ? (
-				<Uploading />
-			) : (
-				<ImageUploader handle_is_uploading={handle_is_uploading} />
-			)}
-		</div>
-	);
 };
 
 export default App;
