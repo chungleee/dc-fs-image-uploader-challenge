@@ -4,7 +4,7 @@ import style from "./App.module.scss";
 import Uploading from "./components/Uploading/Uploading";
 
 const App = () => {
-	const [is_uploading, set_is_uploading] = useState(true);
+	const [is_uploading, set_is_uploading] = useState(false);
 
 	const handle_is_uploading = (bool) => {
 		set_is_uploading(bool);

@@ -10,15 +10,17 @@ const ImageUploader = ({ handle_is_uploading }) => {
 	const fakeUploadFunction = (ms) => {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
-				resolve("uploaded!!!");
+				resolve({
+					uploaded: true,
+				});
 			}, ms);
 		});
 	};
 
 	const handleUpload = async function () {
 		handle_is_uploading(true);
-		await fakeUploadFunction(5000);
-		handle_is_uploading(false);
+		const { uploaded } = await fakeUploadFunction(5000);
+		if (uploaded) handle_is_uploading(false);
 	};
 
 	return (
