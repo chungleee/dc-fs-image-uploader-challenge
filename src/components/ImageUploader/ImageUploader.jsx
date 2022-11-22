@@ -3,7 +3,7 @@ import styles from "./ImageUploader.module.scss";
 import Dropzone from "react-dropzone";
 import { useState } from "react";
 
-const ImageUploader = ({ handle_is_uploading }) => {
+const ImageUploader = ({ handle_is_uploading, handleIsUploaded }) => {
 	const [image, setImage] = useState(null);
 	const [file_to_upload, set_file_to_upload] = useState(null);
 
@@ -20,7 +20,10 @@ const ImageUploader = ({ handle_is_uploading }) => {
 	const handleUpload = async function () {
 		handle_is_uploading(true);
 		const { uploaded } = await fakeUploadFunction(5000);
-		if (uploaded) handle_is_uploading(false);
+		if (uploaded) {
+			handle_is_uploading(false);
+			handleIsUploaded(true);
+		}
 	};
 
 	return (
