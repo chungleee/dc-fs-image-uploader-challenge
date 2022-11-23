@@ -6,7 +6,7 @@ import Uploaded from "./components/Uploaded/Uploaded";
 
 const App = () => {
 	const [is_uploading, set_is_uploading] = useState(false);
-	const [isUploaded, setIsUploaded] = useState(true);
+	const [isUploaded, setIsUploaded] = useState(false);
 
 	const handle_is_uploading = (bool) => {
 		set_is_uploading(bool);
