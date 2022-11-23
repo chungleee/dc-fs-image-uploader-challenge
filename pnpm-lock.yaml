@@ -4,6 +4,7 @@ specifiers:
   '@types/react': ^18.0.22
   '@types/react-dom': ^18.0.7
   '@vitejs/plugin-react': ^2.2.0
+  humbleicons: ^1.9.0
   normalize.css: ^8.0.1
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -12,6 +13,7 @@ specifiers:
   vite: ^3.2.0
 
 dependencies:
+  humbleicons: 1.9.0
   normalize.css: 8.0.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -768,6 +770,10 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: true
+
+  /humbleicons/1.9.0:
+    resolution: {integrity: sha512-D8wZ1gybHLb3hBt1ja7QBcaDYZruSPJ608iCu6zjoT7/WkMZ8ByCRxVWiSf9xdRnCGCMJfkuDadnfY1ZOhsm6w==}
+    dev: false
 
   /immutable/4.1.0:
     resolution: {integrity: sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==}
